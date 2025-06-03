@@ -1,0 +1,33 @@
+# Copy this file to terraform.tfvars and customize the values
+
+# AWS Configuration
+region = "us-west-2"
+
+# EKS Cluster Configuration
+cluster_name = "my-eks-cluster"
+cluster_version = "1.29"
+
+# Network Configuration
+vpc_cidr = "10.0.0.0/16"
+
+# Cluster Access
+cluster_endpoint_public_access = true
+cluster_endpoint_private_access = true
+
+# Node Group Configuration
+node_instance_types = ["t3.medium"]
+node_min_capacity = 1
+node_max_capacity = 5
+node_desired_capacity = 2
+node_disk_size = 50
+
+# IMPORTANT: Replace with your actual IAM user/role ARN
+# You can find this by running: aws sts get-caller-identity
+admin_arn = "arn:aws:iam::123456789012:user/your-username"
+
+# Tags
+tags = {
+  Terraform = "true"
+  Environment = "dev"
+  Project = "eks-infrastructure"
+}
